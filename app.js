@@ -11,7 +11,7 @@ const app = express();
 
 // Configure CORS and middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  origin: ['http://localhost:3000', 'http://localhost:3001','https://gyandayiniclasses.in'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -86,14 +86,14 @@ process.on('SIGTERM', async () => {
 });
 
 // Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`🧪 Test URL: http://localhost:${PORT}/api/test`);
-  console.log(`👥 Students API: http://localhost:${PORT}/api/students`);
-  console.log(`🔐 Auth API: http://localhost:${PORT}/api/auth`);
-  console.log(`💰 Fee API: http://localhost:${PORT}/api/fees`);
-});
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => {
+//   console.log(`🚀 Server running on port ${PORT}`);
+//   console.log(`🧪 Test URL: http://localhost:${PORT}/api/test`);
+//   console.log(`👥 Students API: http://localhost:${PORT}/api/students`);
+//   console.log(`🔐 Auth API: http://localhost:${PORT}/api/auth`);
+//   console.log(`💰 Fee API: http://localhost:${PORT}/api/fees`);
+// });
 
 // Export app
 module.exports = app;
