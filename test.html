@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <button onclick="testRegister()">Test Register</button>
+    <button onclick="testLogin()">Test Login</button>
+    
+    <script>
+        async function testRegister() {
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'teacher@gyandayini.com',
+                        password: 'teacher123',
+                        role: 'teacher',
+                        name: 'Teacher Admin'
+                    })
+                });
+                
+                const result = await response.json();
+                console.log('Register result:', result);
+                alert('Check console for result');
+            } catch (error) {
+                console.error('Register error:', error);
+                alert('Error: ' + error.message);
+            }
+        }
+        
+        async function testLogin() {
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'teacher@gyandayini.com',
+                        password: 'teacher123'
+                    })
+                });
+                
+                const result = await response.json();
+                console.log('Login result:', result);
+                alert('Check console for result');
+            } catch (error) {
+                console.error('Login error:', error);
+                alert('Error: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>
